@@ -28,19 +28,22 @@ type Game struct {
 var currentGame Game
 
 func main() {
-	router := mux.NewRouter()
-	router.HandleFunc("/api/1/game", status).Methods("GET")
-	router.HandleFunc("/api/1/game", create).Methods("POST")
+	r := mux.NewRouter()
+	r.HandleFunc("/api/1/game", status).Methods("GET")
+	r.HandleFunc("/api/1/game", create).Methods("POST")
+	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./static/")))
 
 	// ensure our timer is runnning
 	go tick()
 
-	log.Fatal(http.ListenAndServe(":8080", router))
+	http.Handle("/", r)
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 func tick() {
 	for {
 		if !currentGame.Running {
+			time.Sleep(100 * time.Millisecond)
 			continue
 		}
 		currentGame.TimeLeft -= time.Duration(100 * time.Millisecond)
@@ -81,6 +84,7 @@ func create(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if err := json.Unmarshal(body, &newGame); err != nil {
+		log.Printf("body %q resulted in %s", body, err)
 		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 		w.WriteHeader(422) // unprocessable entity
 		http.Error(w, err.Error(), http.StatusInternalServerError)

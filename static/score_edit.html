@@ -8,30 +8,53 @@
    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="row">
-    <div class="box-l">
-      <center><span id="name_team1"></span></center>
-      <center><span id="score_team1" class="points"></span></center>
-      <button id="decTeam1">-1</button>
-      <button id="incTeam1">+1</button>
-    </div>
 
-    <div class="box-m">
-      <center>TIME</center>
-      <center>
-        <div class="timebox">
-          <center><span id="time"></span></center>
-          <button id="timeout">Timeout</button>
-        </div>
-      </center>
+  <div class="column">
+    <div class="row">
+      <div class="box-l">
+        <center><span id="name_team1"></span></center>
+        <center><span id="score_team1" class="points"></span></center>
+        <button id="decTeam1">-1</button>
+        <button id="incTeam1">+1</button>
+      </div>
+      
+      <div class="box-m">
+        <center>TIME</center>
+        <center>
+          <div class="timebox">
+            <center><span id="time"></span></center>
+            <button id="timeout">Timeout</button>
+          </div>
+        </center>
+      </div>
+      
+      <div class="box-r">
+        <center><span id="name_team2"></span></center>
+        <center><span id="score_team2" class="points"></span></center>
+        <button id="decTeam2">-1</button>
+        <button id="incTeam2">+1</button>
+      </div>
     </div>
-
-    <div class="box-r">
-      <center><span id="name_team2"></span></center>
-      <center><span id="score_team2" class="points"></span></center>
-      <button id="decTeam2">-1</button>
-      <button id="incTeam2">+1</button>
-    </div>
+  </div>
+  <hr>
+  <div class="column">
+    <center>
+      <div id="input_game_time">
+        <span>Game time (seconds): </span>
+        <input type="input" id="input_time" />
+      </div>
+      <div id="input_teams">
+        <span>Name team1</span>
+        <input type="input" id="input_team1_name" />
+      </div>
+      <div>
+        <span>Name team2</span>
+        <input type="input" id="input_team2_name" />
+      </div>
+      <div id="create">
+        <button id="create">Create game</button>
+      </div>
+    </center>
   </div>
 
 </body>

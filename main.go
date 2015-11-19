@@ -156,9 +156,8 @@ func main() {
 	go tick()
 
 	listen := "localhost:8080"
-	fmt.Printf("create at http://%s/create.html\n", listen)
-	fmt.Printf("status at http://%s/score.html\n", listen)
-	fmt.Printf("edit score at http://%s/score_edit.html\n", listen)
+	fmt.Printf("edit game at http://%s/score_edit.html\n", listen)
+	fmt.Printf("display status at http://%s/score.html\n", listen)
 
 	http.Handle("/", r)
 	log.Fatal(http.ListenAndServe(listen, nil))

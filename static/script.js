@@ -1,6 +1,6 @@
-var url_base = "http://localhost:8080"
-
 $(document).ready(function(){
+    var url_base = "http://localhost:8080"
+    var audioPlayed = true
 
     function create() {
         var new_game = {
@@ -34,7 +34,7 @@ $(document).ready(function(){
         });
     }
 
-    function timeout() {
+    function doTimeout() {
         var state_change = {
             ToggleTimeout: true
         }
@@ -53,6 +53,20 @@ $(document).ready(function(){
             $('#score_team1').html('<h2>'+json.Team1.Goals+'</h2>');
             $('#name_team2').html('<h2>'+json.Team2.Name+'</h2>');
             $('#score_team2').html('<h2>'+json.Team2.Goals+'</h2>');
+
+            // check if a new game has started
+            if (json.Running == true) {
+                audioPlayed = false
+            }
+
+            // play alarm
+            if (json.TimeLeft <= 0 && !audioPlayed) {
+                // from http://soundbible.com/1577-Siren-Noise.html
+                // licensed public domain
+                var audio = new Audio('Siren_Noise-KevanGC-1337458893.wav');
+                audio.play();
+                audioPlayed = true
+            }
         })
     }
 
@@ -62,7 +76,7 @@ $(document).ready(function(){
     $('#incTeam1').click(function() {scoreTeam('team1', +1)})
     $('#decTeam2').click(function() {scoreTeam('team2', -1)})
     $('#incTeam2').click(function() {scoreTeam('team2', +1)})
-    $('#timeout').click(function() {timeout()})
+    $('#timeout').click(function() {doTimeout()})
 
     window.setInterval(status, 100);
 });

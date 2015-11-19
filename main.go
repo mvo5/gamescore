@@ -26,8 +26,9 @@ type Game struct {
 }
 
 type StateChange struct {
-	TeamId      string
-	ScoreChange int
+	TeamId        string `json:",omitempty"`
+	ScoreChange   int    `json:",omitempty"`
+	ToggleTimeout bool   `json:",omitempty"`
 }
 
 var currentGame Game
@@ -121,10 +122,10 @@ func stateChange(w http.ResponseWriter, r *http.Request) {
 		currentGame.Team1.Goals += newState.ScoreChange
 	case "team2":
 		currentGame.Team2.Goals += newState.ScoreChange
-	default:
-		log.Printf("got invalid stateChange %s %q", newState, body)
-		http.Error(w, "meep", http.StatusInternalServerError)
-		return
+	}
+
+	if newState.ToggleTimeout {
+		currentGame.Running = !currentGame.Running
 	}
 
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")

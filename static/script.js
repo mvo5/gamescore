@@ -34,6 +34,18 @@ $(document).ready(function(){
         });
     }
 
+    function timeout() {
+        var state_change = {
+            ToggleTimeout: true
+        }
+        $.ajax({
+            type: 'put',
+            url: url_base + "/api/1/game",
+            dataType: 'json',
+            data: JSON.stringify(state_change)
+        });
+    }
+
     function status() {
         $.getJSON(url_base + "/api/1/game", function(json) {
             $('#time').html('<h2>'+json.TimeLeft+'</h2>');
@@ -50,6 +62,7 @@ $(document).ready(function(){
     $('#incTeam1').click(function() {scoreTeam('team1', +1)})
     $('#decTeam2').click(function() {scoreTeam('team2', -1)})
     $('#incTeam2').click(function() {scoreTeam('team2', +1)})
+    $('#timeout').click(function() {timeout()})
 
     window.setInterval(status, 100);
 });

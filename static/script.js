@@ -2,7 +2,7 @@ var url_base = "http://localhost:8080"
 
 $(document).ready(function(){
 
-    var create = function() {
+    function create() {
         var new_game = {
             timeleft: parseInt($("#input_time").val()),
             team1: {
@@ -21,7 +21,20 @@ $(document).ready(function(){
         });
     };
 
-    var status = function() {
+    function scoreTeam(team, scoreChange) {
+        var state_change = {
+            TeamId: team,
+            ScoreChange: scoreChange
+        }
+        $.ajax({
+            type: 'put',
+            url: url_base + "/api/1/game",
+            dataType: 'json',
+            data: JSON.stringify(state_change)
+        });
+    }
+
+    function status() {
         $.getJSON(url_base + "/api/1/game", function(json) {
             $('#time').html('<h2>'+json.TimeLeft+'</h2>');
             $('#name_team1').html('<h2>'+json.Team1.Name+'</h2>');
@@ -31,6 +44,12 @@ $(document).ready(function(){
         })
     }
 
+    // the callbacks
     $('#create').click(create);
+    $('#decTeam1').click(function() {scoreTeam('team1', -1)})
+    $('#incTeam1').click(function() {scoreTeam('team1', +1)})
+    $('#decTeam2').click(function() {scoreTeam('team2', -1)})
+    $('#incTeam2').click(function() {scoreTeam('team2', +1)})
+
     window.setInterval(status, 100);
 });

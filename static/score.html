@@ -4,6 +4,8 @@
    <title>Game score</title>
    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
    <script src="jquery-1.11.3.min.js"></script>
+   <script src="jquery-ui.min.js"></script>
+   <script src="sevenSeg.js"></script>
    <script src="script.js"></script>
    <link rel="stylesheet" href="style.css" />
 </head>
@@ -15,10 +17,14 @@
     </div>
 
     <div class="box-m">
-      <center>TIME</center>
+      <center><h1>TIME</h1></center>
       <center>
         <div class="timebox">
-          <center><span id="time"></span></center>
+          <center>
+            <span id="minutes"></span>
+            <span id="colon"><h2>:</h2></span>
+            <span id="seconds"></span>
+          </center>
         </div>
       </center>
     </div>

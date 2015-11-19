@@ -4,6 +4,8 @@
    <title>Game score</title>
    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
    <script src="jquery-1.11.3.min.js"></script>
+   <script src="jquery-ui.min.js"></script>
+   <script src="sevenSeg.js"></script>
    <script src="script.js"></script>
    <link rel="stylesheet" href="style.css" />
 </head>
@@ -19,11 +21,15 @@
       </div>
       
       <div class="box-m">
-        <center>TIME</center>
+        <center><h2>TIME</h2></center>
         <center>
           <div class="timebox">
-            <center><span id="time"></span></center>
-            <button id="timeout">Timeout</button>
+          <center>
+            <span id="minutes"></span>
+            <span id="colon"><h2>:</h2></span>
+            <span id="seconds"></span>
+          </center>
+          <button id="timeout">Timeout</button>
           </div>
         </center>
       </div>
@@ -41,15 +47,15 @@
     <center>
       <div id="input_game_time">
         <span>Game time (seconds): </span>
-        <input type="input" id="input_time" />
+        <input type="input" id="input_time" placeholder="Game time"/>
       </div>
       <div id="input_teams">
         <span>Name team1</span>
-        <input type="input" id="input_team1_name" />
+        <input type="input" id="input_team1_name" placeholder="HOME"/>
       </div>
       <div>
         <span>Name team2</span>
-        <input type="input" id="input_team2_name" />
+        <input type="input" id="input_team2_name" placeholder="GUEST"/>
       </div>
       <div id="create">
         <button id="create">Create game</button>

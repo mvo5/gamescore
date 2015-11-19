@@ -48,12 +48,16 @@ $(document).ready(function(){
 
     function status() {
         $.getJSON(url_base + "/api/1/game", function(json) {
-            $('#time').html('<h2>'+json.TimeStr+'</h2>');
+            var splittedTime = json.TimeStr.split(":");
+            var minutes = splittedTime[0];
+            var seconds = splittedTime[1];
+            $('#minutes').sevenSeg({ digits:(minutes + "").length, value: minutes });
+            $('#seconds').sevenSeg({ digits:(seconds + "").length, value: seconds });
             $('#name_team1').html('<h2>'+json.Team1.Name+'</h2>');
-            $('#score_team1').html('<h2>'+json.Team1.Goals+'</h2>');
+            $('#score_team1').sevenSeg({ digits:2, value: json.Team1.Goals });
             $('#name_team2').html('<h2>'+json.Team2.Name+'</h2>');
-            $('#score_team2').html('<h2>'+json.Team2.Goals+'</h2>');
-
+            $('#score_team2').sevenSeg({ digits:2, value: json.Team2.Goals });
+            console.log((json.Team2.Goals + "").length);
             // check if a new game has started
             if (json.Running == true) {
                 audioPlayed = false

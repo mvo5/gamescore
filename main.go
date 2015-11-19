@@ -21,6 +21,7 @@ type Game struct {
 	Team1    Team
 	Team2    Team
 	TimeLeft time.Duration
+	TimeStr  string
 	Half     int
 	Running  bool
 }
@@ -43,6 +44,18 @@ func tick() {
 		if currentGame.TimeLeft <= 0 {
 			currentGame.Running = false
 		}
+
+		// format the time nicely for the javascript
+		min := currentGame.TimeLeft / (60 * time.Second)
+		sec := currentGame.TimeLeft % (60 * time.Second)
+		// sub 1 min gets 100 millisecond resolution
+		if min >= 1 {
+			sec /= time.Second
+		} else {
+			sec /= 100 * time.Millisecond
+		}
+		currentGame.TimeStr = fmt.Sprintf("%02d:%02d", min, sec)
+
 		time.Sleep(100 * time.Millisecond)
 	}
 }

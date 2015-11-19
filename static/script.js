@@ -48,7 +48,7 @@ $(document).ready(function(){
 
     function status() {
         $.getJSON(url_base + "/api/1/game", function(json) {
-            $('#time').html('<h2>'+json.TimeLeft+'</h2>');
+            $('#time').html('<h2>'+json.TimeStr+'</h2>');
             $('#name_team1').html('<h2>'+json.Team1.Name+'</h2>');
             $('#score_team1').html('<h2>'+json.Team1.Goals+'</h2>');
             $('#name_team2').html('<h2>'+json.Team2.Name+'</h2>');

@@ -8,21 +8,30 @@
    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="container">
-   <header>
+    <header>
       <h1>Game</h1>
-   </header>
-   <div id="time">
-   </div>
-   <div id="name_team1">
-   </div>
-   <div id="score_team1">
-   </div>
-   <div id="name_team2">
-   </div>
-   <div id="score_team2">
-   </div>
+    </header>
 
-</div>
+  <div class="row">
+    <div class="box-l">
+      <center><span id="name_team1"></span></center>
+      <center><span id="score_team1" class="points"></span></center>
+    </div>
+
+    <div class="box-m">
+      <center>TIME</center>
+      <center>
+        <div class="timebox">
+          <center><span id="time"></span></center>
+        </div>
+      </center>
+    </div>
+
+    <div class="box-r">
+      <center><span id="name_team2"></span></center>
+      <center><span id="score_team2" class="points"></span></center>
+    </div>
+  </div>
+
 </body>
 </html>

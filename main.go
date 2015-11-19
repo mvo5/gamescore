@@ -27,19 +27,6 @@ type Game struct {
 
 var currentGame Game
 
-func main() {
-	r := mux.NewRouter()
-	r.HandleFunc("/api/1/game", status).Methods("GET")
-	r.HandleFunc("/api/1/game", create).Methods("POST")
-	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./static/")))
-
-	// ensure our timer is runnning
-	go tick()
-
-	http.Handle("/", r)
-	log.Fatal(http.ListenAndServe(":8080", nil))
-}
-
 func tick() {
 	for {
 		if !currentGame.Running {
@@ -96,4 +83,20 @@ func create(w http.ResponseWriter, r *http.Request) {
 	currentGame = newGame
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusCreated)
+}
+
+func main() {
+	r := mux.NewRouter()
+	r.HandleFunc("/api/1/game", status).Methods("GET")
+	r.HandleFunc("/api/1/game", create).Methods("POST")
+	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./static/")))
+
+	// ensure our timer is runnning
+	go tick()
+
+	listen := "localhost:8080"
+	fmt.Printf("point your browser to http://%s/score.html\n", listen)
+
+	http.Handle("/", r)
+	log.Fatal(http.ListenAndServe(listen, nil))
 }

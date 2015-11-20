@@ -4,9 +4,10 @@
     font-family: 'meine-schrift';
     src: url('7seg.ttf') format('truetype');
 }
-body, * {
-    background-color: green;
-    font-family: sans-serif;
+body {
+    background: green !important;
+}
+h1 {
     color: white;
 }
 .points {

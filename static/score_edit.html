@@ -7,10 +7,11 @@
    <script src="script.js"></script>
    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-  <div class="column">
-    <div class="row">
+  <div class="row">
+    <div>
       <div class="box-l">
         <center><span id="name_team1"></span></center>
         <center><span id="score_team1" class="points"></span></center>
@@ -37,11 +38,16 @@
     </div>
   </div>
 
+  <div class="row">
+    <!--- there is surely a better way :/ --->
+    <br />
+    <br />
+  </div>
   
-  <div class="column">
+  <div class="row">
     <center>
       <div id="input_game_time">
-        <span>Game time (seconds): </span>
+        <span>Game time (minutes): </span>
         <input type="input" id="input_time" />
       </div>
       <div id="input_teams">

@@ -4,7 +4,7 @@ $(document).ready(function(){
 
     function create() {
         var new_game = {
-            timeleft: parseInt($("#input_time").val()),
+            timeleft: parseInt($("#input_time").val()) * 60,
             team1: {
                 name: $("#input_team1_name").val()
             },

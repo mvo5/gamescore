@@ -48,11 +48,11 @@ $(document).ready(function(){
 
     function status() {
         $.getJSON(url_base + "/api/1/status", function(json) {
-            $('#time').html('<h2>'+json.TimeStr+'</h2>');
-            $('#name_team1').html('<h2>'+json.Team1.Name+'</h2>');
-            $('#score_team1').html('<h2>'+json.Team1.Goals+'</h2>');
-            $('#name_team2').html('<h2>'+json.Team2.Name+'</h2>');
-            $('#score_team2').html('<h2>'+json.Team2.Goals+'</h2>');
+            $('#time').text(json.TimeStr);
+            $('#name_team1').text(json.Team1.Name);
+            $('#score_team1').text(json.Team1.Goals);
+            $('#name_team2').text(json.Team2.Name);
+            $('#score_team2').text(json.Team2.Goals);
 
             // check if a new game has started
             if (json.Running == true) {

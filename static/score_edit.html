@@ -11,31 +11,33 @@
 <body>
 
   <div class="row">
-    <div>
-      <div class="box-l">
-        <center><span id="name_team1"></span></center>
-        <center><span id="score_team1" class="points"></span></center>
-        <button id="decTeam1">-1</button>
-        <button id="incTeam1">+1</button>
+    <div class="col-md-3">
+      <center>
+        <div id="name_team1"></div>
+        <div id="score_team1" class="points"></div>
+        <button id="decTeam1" type="button" class="btn btn-lg btn-default">-1</button>
+        <button id="incTeam1" type="button" class="btn btn-lg btn-default">+1</button>
+      </center>
       </div>
       
-      <div class="box-m">
-        <center>TIME</center>
+      <div class="col-md-6">
         <center>
+          <span>TIME</span>
           <div class="timebox">
-            <center><span id="time" class="time"></span></center>
-            <button id="timeout">Timeout</button>
+            <div id="time" class="time"></div>
+            <button id="timeout" type="button" class="btn btn-lg btn-default">Pause</button>
           </div>
         </center>
       </div>
       
-      <div class="box-r">
-        <center><span id="name_team2"></span></center>
-        <center><span id="score_team2" class="points"></span></center>
-        <button id="decTeam2">-1</button>
-        <button id="incTeam2">+1</button>
+      <div class="col-md-3">
+        <center>
+          <div id="name_team2"></div>
+          <div id="score_team2" class="points"></div>
+          <button id="decTeam2" type="button" class="btn btn-lg btn-default">-1</button>
+        <button id="incTeam2" type="button" class="btn btn-lg btn-default">+1</button>
+        </center>
       </div>
-    </div>
   </div>
 
   <div class="row">
@@ -44,23 +46,27 @@
     <br />
   </div>
   
-  <div class="row">
+  <div class="form-group">
     <center>
-      <div id="input_game_time">
-        <span>Game time (minutes): </span>
-        <input type="input" id="input_time" />
+      <div id="input_game_time" class="input-group">
+        <span>Game time: </span>
+        <input type="text" placeholder="in minutes" id="input_time" />
       </div>
       <div id="input_teams">
-        <span>Name team1</span>
-        <input type="input" id="input_team1_name" />
+        <span>Team1</span>
+        <input type="text" placeholder="team name" id="input_team1_name" />
       </div>
       <div>
-        <span>Name team2</span>
-        <input type="input" id="input_team2_name" />
+        <span>Team2</span>
+        <input type="text" placeholder="team name" id="input_team2_name" />
       </div>
-      <div id="create">
-        <button id="create">Create game</button>
+
+      <center>
+      <div id="create" class="input-group">
+        <button id="create" type="button" class="btn btn-lg btn-default">Create game</button>
       </div>
+      </center>
+
     </center>
   </div>
 

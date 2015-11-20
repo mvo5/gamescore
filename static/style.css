@@ -1,47 +1,28 @@
+@import url("bootstrap.min.css");
+
 @font-face {
     font-family: 'meine-schrift';
     src: url('7seg.ttf') format('truetype');
 }
 body, * {
-    margin: 0px;
-    padding: 0px;
     background-color: green;
     font-family: sans-serif;
     font-size: 32pt;
     color: white;
-}
-.box-m {
-    padding: 1%;
-    width: 54%;
-    float: left;
-}
-.box-l, .box-r {
-    padding: 1%;
-    width: 20%;
-    float: left;
-}
-.row {
-    width: 100%;
-    clear: both;
-    height: 40%;
 }
 .points {
     font-family: 'meine-schrift';
     font-size: 110pt;
     color: red;
     background-color: black;
-    padding: 5px;
-    padding-right: 15px;
+
 }
 .time {
     font-family: 'meine-schrift';
     font-size: 110pt;
     color: yellow;
     background-color: black;
-    padding: 10px;
-    padding-right: 15px;
 }
 .timebox {
-    padding: 10px;
-    width: 60%;
+    width: 80%;
 }

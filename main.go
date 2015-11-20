@@ -34,29 +34,33 @@ type StateChange struct {
 
 var currentGame Game
 
+func tickOnce() {
+	currentGame.TimeLeft -= time.Duration(100 * time.Millisecond)
+	if currentGame.TimeLeft <= 0 {
+		currentGame.Running = false
+	}
+
+	// format the time nicely for the javascript
+	min := currentGame.TimeLeft / (60 * time.Second)
+	sec := currentGame.TimeLeft % (60 * time.Second)
+	// sub 1 min gets 100 millisecond resolution
+	if min >= 1 {
+		sec /= time.Second
+	} else {
+		sec /= 100 * time.Millisecond
+	}
+	currentGame.TimeStr = fmt.Sprintf("%02d:%02d", min, sec)
+
+	time.Sleep(100 * time.Millisecond)
+}
+
 func tick() {
 	for {
 		if !currentGame.Running {
 			time.Sleep(100 * time.Millisecond)
 			continue
 		}
-		currentGame.TimeLeft -= time.Duration(100 * time.Millisecond)
-		if currentGame.TimeLeft <= 0 {
-			currentGame.Running = false
-		}
-
-		// format the time nicely for the javascript
-		min := currentGame.TimeLeft / (60 * time.Second)
-		sec := currentGame.TimeLeft % (60 * time.Second)
-		// sub 1 min gets 100 millisecond resolution
-		if min >= 1 {
-			sec /= time.Second
-		} else {
-			sec /= 100 * time.Millisecond
-		}
-		currentGame.TimeStr = fmt.Sprintf("%02d:%02d", min, sec)
-
-		time.Sleep(100 * time.Millisecond)
+		tickOnce()
 	}
 }
 
@@ -105,7 +109,7 @@ func create(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	newGame.TimeLeft = time.Duration(newGame.TimeLeft * time.Second)
+	newGame.TimeLeft = time.Duration(newGame.TimeLeft)
 
 	currentGame = newGame
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
@@ -145,12 +149,18 @@ func stateChange(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusCreated)
 }
 
-func main() {
+func makeRouter() *mux.Router {
 	r := mux.NewRouter()
 	r.HandleFunc("/api/1/status", status).Methods("GET")
 	r.HandleFunc("/api/1/create", create).Methods("POST")
 	r.HandleFunc("/api/1/changeState", stateChange).Methods("POST")
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./static/")))
+
+	return r
+}
+
+func main() {
+	r := makeRouter()
 
 	// ensure our timer is runnning
 	go tick()

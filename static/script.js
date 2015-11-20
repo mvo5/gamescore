@@ -4,7 +4,8 @@ $(document).ready(function(){
 
     function create() {
         var new_game = {
-            timeleft: parseInt($("#input_time").val()) * 60,
+            // ui gets time in minutes, api expects nanoseconds so 1000000000
+            timeleft: parseInt($("#input_time").val()) * 60 * 1000000000,
             team1: {
                 name: $("#input_team1_name").val()
             },

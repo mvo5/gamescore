@@ -15,7 +15,7 @@ $(document).ready(function(){
         }
         $.ajax({
             type: 'post',
-            url: url_base + "/api/1/game",
+            url: url_base + "/api/1/create",
             dataType: 'json',
             data: JSON.stringify(new_game)
         });
@@ -27,8 +27,8 @@ $(document).ready(function(){
             ScoreChange: scoreChange
         }
         $.ajax({
-            type: 'put',
-            url: url_base + "/api/1/game",
+            type: 'post',
+            url: url_base + "/api/1/changeState",
             dataType: 'json',
             data: JSON.stringify(state_change)
         });
@@ -39,15 +39,15 @@ $(document).ready(function(){
             ToggleTimeout: true
         }
         $.ajax({
-            type: 'put',
-            url: url_base + "/api/1/game",
+            type: 'post',
+            url: url_base + "/api/1/changeState",
             dataType: 'json',
             data: JSON.stringify(state_change)
         });
     }
 
     function status() {
-        $.getJSON(url_base + "/api/1/game", function(json) {
+        $.getJSON(url_base + "/api/1/status", function(json) {
             $('#time').html('<h2>'+json.TimeStr+'</h2>');
             $('#name_team1').html('<h2>'+json.Team1.Name+'</h2>');
             $('#score_team1').html('<h2>'+json.Team1.Goals+'</h2>');

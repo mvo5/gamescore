@@ -147,9 +147,9 @@ func stateChange(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	r := mux.NewRouter()
-	r.HandleFunc("/api/1/game", status).Methods("GET")
-	r.HandleFunc("/api/1/game", create).Methods("POST")
-	r.HandleFunc("/api/1/game", stateChange).Methods("PUT")
+	r.HandleFunc("/api/1/status", status).Methods("GET")
+	r.HandleFunc("/api/1/create", create).Methods("POST")
+	r.HandleFunc("/api/1/changeState", stateChange).Methods("POST")
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./static/")))
 
 	// ensure our timer is runnning

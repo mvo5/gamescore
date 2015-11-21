@@ -71,11 +71,18 @@ $(document).ready(function(){
         })
     }
 
-    function swapTeams() {
+    function changeSides() {
         var team1 = $('#input_team1_name').val();
         var team2 = $('#input_team2_name').val();
+        var scoreTeam1 = $('#score_team1').text();
+        var scoreTeam2 = $('#score_team2').text();
+        // Convenient function for second half:
+        // change sides and create new game with swaped names/goals
         $('#input_team1_name').val(team2);
         $('#input_team2_name').val(team1);
+        create();
+        scoreTeam('team1', parseInt(scoreTeam2));
+        scoreTeam('team2', parseInt(scoreTeam1));
     }
 
     // the callbacks
@@ -85,8 +92,7 @@ $(document).ready(function(){
     $('#decTeam2').click(function() {scoreTeam('team2', -1)})
     $('#incTeam2').click(function() {scoreTeam('team2', +1)})
     $('#timeout').click(function() {doTimeout()})
-    $('#swap').click(function() {swapTeams()})
-    console.log("meep")
+    $('#swap').click(function() {changeSides()})
 
     window.setInterval(status, 100);
 });

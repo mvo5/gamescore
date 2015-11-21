@@ -71,6 +71,13 @@ $(document).ready(function(){
         })
     }
 
+    function swapTeams() {
+        var team1 = $('#input_team1_name').val();
+        var team2 = $('#input_team2_name').val();
+        $('#input_team1_name').val(team2);
+        $('#input_team2_name').val(team1);
+    }
+
     // the callbacks
     $('#create').click(create);
     $('#decTeam1').click(function() {scoreTeam('team1', -1)})
@@ -78,6 +85,8 @@ $(document).ready(function(){
     $('#decTeam2').click(function() {scoreTeam('team2', -1)})
     $('#incTeam2').click(function() {scoreTeam('team2', +1)})
     $('#timeout').click(function() {doTimeout()})
+    $('#swap').click(function() {swapTeams()})
+    console.log("meep")
 
     window.setInterval(status, 100);
 });

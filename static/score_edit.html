@@ -35,7 +35,7 @@
           <h1 id="name_team2"></h1>
           <div id="score_team2" class="points"></div>
           <button id="decTeam2" type="button" class="btn btn-lg btn-default">-1</button>
-        <button id="incTeam2" type="button" class="btn btn-lg btn-default">+1</button>
+          <button id="incTeam2" type="button" class="btn btn-lg btn-default">+1</button>
         </center>
       </div>
   </div>
@@ -50,41 +50,44 @@
   </div>
 
   <div class="container col-md-5">
-  <div class="panel panel-default" >
-    <div class="panel-heading">Start new game</div>
-  <div class="form-horizontal panel-body">
-
-
-      <div class="form-group ">
-        <label for="input_time" class="col-md-2 form-control-label">Game time: </label>
-        <div class="col-md-10">
-          <input type="text" class="form-control" placeholder="in minutes" id="input_time" />
+    <div class="panel panel-default" >
+      <div class="panel-heading">Start new game</div>
+      <div class="form-horizontal panel-body">
+        
+        <div class="form-group ">
+          <label for="input_time" class="col-md-2 form-control-label">Game time: </label>
+          <div class="col-md-10">
+            <input type="text" class="form-control" placeholder="in minutes" id="input_time" />
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="input_team1_name" class="col-md-2 form-control-label">Team1</label>
+          <div class="col-md-10">
+            <input type="text" class="form-control" placeholder="team name" id="input_team1_name" />
+          </div>
+        </div>
+        
+        <div  class="form-group">
+          <label for="input_team2_name" class="col-md-2 form-control-label">Team2</label>
+          <div class="col-md-10">
+            <input type="text" class="form-control" placeholder="team name" id="input_team2_name" />
+          </div>
         </div>
       </div>
       
-      <div class="form-group ">
-        <label for="input_team1_name" class="col-md-2 form-control-label">Team1</label>
-        <div class="col-md-10">
-          <input type="text" class="form-control" placeholder="team name" id="input_team1_name" />
+      <center>
+        <div class="form-group">
+          <button id="create" type="button" class="btn btn-lg btn-primary">Start new game</button>
         </div>
-      </div>
+        <div class="form-group">
+          <button id="swap" type="button" class="btn btn-sm btn-default">Swap Teams</button>
+        </div>
+      </center>
 
-      <div  class="form-group">
-        <label for="input_team2_name" class="col-md-2 form-control-label">Team2</label>
-        <div class="col-md-10">
-          <input type="text" class="form-control" placeholder="team name" id="input_team2_name" />
-        </div>
-      </div>
     </div>
-
-  <center>
-    <div id="create" class="form-group">
-      <button id="create" type="button" class="btn btn-lg btn-default">Start new game</button>
-    </div>  
-  </center>
-
-  </div>
   </div>
 </div>
+
 </body>
 </html>

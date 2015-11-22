@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    var url_base = "http://localhost:8080"
-    var audioPlayed = true
+    var url_base = "http://localhost:8080";
+    var audioPlayed = true;
 
     function create() {
         var new_game = {

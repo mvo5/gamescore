@@ -7,6 +7,8 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os/exec"
+	"runtime"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -159,6 +161,22 @@ func makeRouter() *mux.Router {
 	return r
 }
 
+func launchBrowser(editUrl, statusUrl string) {
+	// FIXME: suckx but wait for the ListenAndServe to be ready
+	time.Sleep(500 * time.Millisecond)
+
+	switch runtime.GOOS {
+	case "linux":
+		exec.Command("xdg-open", editUrl).Start()
+		exec.Command("xdg-open", statusUrl).Start()
+	case "windows", "darwin":
+		exec.Command("open", editUrl).Start()
+		exec.Command("open", statusUrl).Start()
+	default:
+		fmt.Println("unsupported platform")
+	}
+}
+
 func main() {
 	r := makeRouter()
 
@@ -166,8 +184,12 @@ func main() {
 	go tick()
 
 	listen := "localhost:8080"
-	fmt.Printf("edit game at http://%s/score_edit.html\n", listen)
-	fmt.Printf("display status at http://%s/score.html\n", listen)
+	editUrl := fmt.Sprintf("http://%s/score_edit.html", listen)
+	statusUrl := fmt.Sprintf("http://%s/score.html", listen)
+	fmt.Printf("edit game at %s\n", editUrl)
+	fmt.Printf("display status at %s\n", statusUrl)
+
+	go launchBrowser(editUrl, statusUrl)
 
 	http.Handle("/", r)
 	log.Fatal(http.ListenAndServe(listen, nil))

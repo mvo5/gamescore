@@ -170,8 +170,8 @@ func launchBrowser(editUrl, statusUrl string) {
 		exec.Command("xdg-open", editUrl).Start()
 		exec.Command("xdg-open", statusUrl).Start()
 	case "windows", "darwin":
-		exec.Command("open", editUrl).Start()
-		exec.Command("open", statusUrl).Start()
+		exec.Command("cmd", "/c", "start", editUrl).Start()
+		exec.Command("cmd", "/c", "start", statusUrl).Start()
 	default:
 		fmt.Println("unsupported platform")
 	}

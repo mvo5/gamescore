@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    var url_base = "http://localhost:8080";
     var audioPlayed = true;
 
     function create() {
@@ -16,7 +15,7 @@ $(document).ready(function(){
         }
         $.ajax({
             type: 'post',
-            url: url_base + "/api/1/create",
+            url: "/api/1/create",
             dataType: 'json',
             data: JSON.stringify(new_game)
         });
@@ -29,7 +28,7 @@ $(document).ready(function(){
         }
         $.ajax({
             type: 'post',
-            url: url_base + "/api/1/changeState",
+            url: "/api/1/changeState",
             dataType: 'json',
             data: JSON.stringify(state_change)
         });
@@ -41,14 +40,14 @@ $(document).ready(function(){
         }
         $.ajax({
             type: 'post',
-            url: url_base + "/api/1/changeState",
+            url: "/api/1/changeState",
             dataType: 'json',
             data: JSON.stringify(state_change)
         });
     }
 
     function status() {
-        $.getJSON(url_base + "/api/1/status", function(json) {
+        $.getJSON("/api/1/status", function(json) {
             $('#time').text(json.TimeStr);
             $('#name_team1').text(json.Team1.Name);
             $('#score_team1').text(json.Team1.Goals);

@@ -6,6 +6,7 @@ import (
 	"io"
 	"io/ioutil"
 	"log"
+	"net"
 	"net/http"
 	"os/exec"
 	"runtime"
@@ -162,9 +163,6 @@ func makeRouter() *mux.Router {
 }
 
 func launchBrowser(editUrl, statusUrl string) {
-	// FIXME: suckx but wait for the ListenAndServe to be ready
-	time.Sleep(500 * time.Millisecond)
-
 	switch runtime.GOOS {
 	case "linux":
 		exec.Command("xdg-open", editUrl).Start()
@@ -189,8 +187,11 @@ func main() {
 	fmt.Printf("edit game at %s\n", editUrl)
 	fmt.Printf("display status at %s\n", statusUrl)
 
-	go launchBrowser(editUrl, statusUrl)
-
 	http.Handle("/", r)
-	log.Fatal(http.ListenAndServe(listen, nil))
+	listener, err := net.Listen("tcp", listen)
+	if err != nil {
+		log.Fatal(err)
+	}
+	launchBrowser(editUrl, statusUrl)
+	log.Fatal(http.Serve(listener, nil))
 }

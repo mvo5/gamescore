@@ -165,11 +165,11 @@ func makeRouter() *mux.Router {
 func launchBrowser(editUrl, statusUrl string) {
 	switch runtime.GOOS {
 	case "linux":
-		exec.Command("xdg-open", editUrl).Start()
 		exec.Command("xdg-open", statusUrl).Start()
+		exec.Command("xdg-open", editUrl).Start()
 	case "windows", "darwin":
-		exec.Command("cmd", "/c", "start", editUrl).Start()
 		exec.Command("cmd", "/c", "start", statusUrl).Start()
+		exec.Command("cmd", "/c", "start", editUrl).Start()
 	default:
 		fmt.Println("unsupported platform")
 	}

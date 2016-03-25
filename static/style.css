@@ -12,14 +12,14 @@ h1 {
 }
 .points {
     font-family: 'meine-schrift';
-    font-size: 110pt;
+    font-size: 100pt;
     color: red;
     background-color: black;
 
 }
 .time {
     font-family: 'meine-schrift';
-    font-size: 110pt;
+    font-size: 100pt;
     color: yellow;
     background-color: black;
 }

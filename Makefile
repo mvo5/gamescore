@@ -1,7 +1,7 @@
 all: check build buildwin
 
 deps:
-	go get github.com/gorilla/mux
+	go get github.com/gorilla/mux gopkg.in/check.v1
 
 check: deps
 	go test

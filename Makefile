@@ -11,3 +11,6 @@ buildwin:
 
 clean:
 	rm -f gamescore gamescore.exe
+
+dist: build buildwin
+	(cd ..; zip -r gamescore-$(shell date '+%Y%m%d-%H%M').zip gamescore)

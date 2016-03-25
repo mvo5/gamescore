@@ -1,0 +1,15 @@
+The following sound files are included:
+
+Siren_Noise-KevanGC-1337458893.wav
+- public domain
+- http://soundbible.com/1577-Siren-Noise.html
+
+Horn.wav 
+- CC Attribution 3.0
+- http://soundbible.com/1542-Air-Horn.html
+- Recorded by Mike Koenig
+
+TempleBell.wav:
+- CC Attribution 3.0
+- http://soundbible.com/1531-Temple-Bell.html
+- Recorded by Mike Koenig

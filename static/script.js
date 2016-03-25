@@ -75,13 +75,15 @@ $(document).ready(function(){
 
             // play alarm
             if (json.TimeLeft <= 0 && !audioPlayed) {
-                // from http://soundbible.com/1577-Siren-Noise.html
-                // licensed public domain
-                var audio = new Audio('Siren_Noise-KevanGC-1337458893.wav');
-                audio.play();
+                playSound()
                 audioPlayed = true
             }
         })
+    }
+
+    function playSound() {
+        var audio = new Audio($('#select_sound').val());
+        audio.play();
     }
 
     function changeSides() {
@@ -107,6 +109,7 @@ $(document).ready(function(){
     $('#incTeam2').click(function() {scoreTeam('team2', +1)})
     $('#timeout').click(function() {doTimeout()})
     $('#swap').click(function() {changeSides()})
-
+    $('#testSound').click(playSound);
+    
     window.setInterval(status, 100);
 });

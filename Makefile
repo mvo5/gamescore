@@ -1,9 +1,12 @@
 all: check build buildwin
 
-check:
+deps:
+	go get github.com/gorilla/mux
+
+check: deps
 	go test
 
-build: main.go main_test.go
+build: deps main.go main_test.go 
 	go build
 
 buildwin:
@@ -14,3 +17,5 @@ clean:
 
 dist: build buildwin
 	(cd ..; zip -r gamescore-$(shell date '+%Y%m%d-%H%M').zip gamescore)
+
+.PHONY: deps check build buildwin clean dist

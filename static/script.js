@@ -1,8 +1,8 @@
 $(document).ready(function(){
     var audioPlayed = true;
 
-    function create() {
-        var new_game = {
+    function getGameData() {
+        return {
             // ui gets time in minutes, api expects nanoseconds so 1000000000
             timeleft: parseInt($("#input_time").val()) * 60 * 1000000000,
             team1: {
@@ -10,9 +10,23 @@ $(document).ready(function(){
             },
             team2: {
                 name: $("#input_team2_name").val()
-            },
-            running: true
+            }
         }
+    }
+    
+    function start() {
+        var new_game = getGameData()
+        new_game.running = true
+        $.ajax({
+            type: 'post',
+            url: "/api/1/create",
+            dataType: 'json',
+            data: JSON.stringify(new_game)
+        });
+    }
+    
+    function create() {
+        var new_game = getGameData()
         $.ajax({
             type: 'post',
             url: "/api/1/create",
@@ -85,6 +99,7 @@ $(document).ready(function(){
     }
 
     // the callbacks
+    $('#start').click(start);
     $('#create').click(create);
     $('#decTeam1').click(function() {scoreTeam('team1', -1)})
     $('#incTeam1').click(function() {scoreTeam('team1', +1)})

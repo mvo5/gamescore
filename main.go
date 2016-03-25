@@ -43,6 +43,11 @@ func tickOnce() {
 		currentGame.Running = false
 	}
 
+	formatTime()
+	time.Sleep(100 * time.Millisecond)
+}
+
+func formatTime() {
 	// format the time nicely for the javascript
 	min := currentGame.TimeLeft / (60 * time.Second)
 	sec := currentGame.TimeLeft % (60 * time.Second)
@@ -53,8 +58,6 @@ func tickOnce() {
 		sec /= 100 * time.Millisecond
 	}
 	currentGame.TimeStr = fmt.Sprintf("%02d:%02d", min, sec)
-
-	time.Sleep(100 * time.Millisecond)
 }
 
 func tick() {
@@ -113,8 +116,9 @@ func create(w http.ResponseWriter, r *http.Request) {
 	}
 
 	newGame.TimeLeft = time.Duration(newGame.TimeLeft)
-
 	currentGame = newGame
+	formatTime()
+
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusCreated)
 }

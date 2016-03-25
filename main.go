@@ -37,6 +37,20 @@ type StateChange struct {
 
 var currentGame Game
 
+func init() {
+	// init with some example data
+	currentGame = Game{
+		Team1: Team{
+			Name: "Home",
+		},
+		Team2: Team{
+			Name: "Guest",
+		},
+	}
+	// and ensure time is availale
+	formatTime()
+}
+
 func tickOnce() {
 	currentGame.TimeLeft -= time.Duration(100 * time.Millisecond)
 	if currentGame.TimeLeft <= 0 {

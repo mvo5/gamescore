@@ -62,6 +62,7 @@ var testGame = &Game{
 		Goals: 7,
 	},
 	TimeLeft: 120 * time.Second,
+	TimeStr:  "02:00",
 	Half:     1,
 	Running:  false,
 }

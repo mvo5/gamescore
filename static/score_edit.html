@@ -11,26 +11,30 @@
 <body>
 <div class="container-fluid">
   <div class="row">
+    <!--- we mirror the results here because usually the laptop faces
+          away from the pitch and the external display faces to the
+          pitch
+      -->
     <div class="col-md-3" style="text-align: center">
-        <h1 id="name_team1"></h1>
-        <div id="score_team1" class="points"></div>
-        <button id="decTeam1" type="button" class="btn btn-lg btn-default">-1</button>
-        <button id="incTeam1" type="button" class="btn btn-lg btn-default">+1</button>
+        <h1 id="name_team2"></h1>
+        <div id="score_team2" class="points_small"></div>
+        <button id="decTeam2" type="button" class="btn btn-lg btn-default">-1</button>
+        <button id="incTeam2" type="button" class="btn btn-lg btn-default">+1</button>
       </div>
       
       <div class="col-md-6" style="text-align: center">
           <h1>TIME</h1>
           <div class="timebox">
-            <div id="time" class="time"></div>
+            <div id="time" class="time_small"></div>
             <button id="timeout" type="button" class="btn btn-lg btn-default">Pause</button>
           </div>
       </div>
       
       <div class="col-md-3" style="text-align: center">
-          <h1 id="name_team2"></h1>
-          <div id="score_team2" class="points"></div>
-          <button id="decTeam2" type="button" class="btn btn-lg btn-default">-1</button>
-          <button id="incTeam2" type="button" class="btn btn-lg btn-default">+1</button>
+          <h1 id="name_team1"></h1>
+          <div id="score_team1" class="points_small"></div>
+          <button id="decTeam1" type="button" class="btn btn-lg btn-default">-1</button>
+          <button id="incTeam1" type="button" class="btn btn-lg btn-default">+1</button>
       </div>
   </div>
 

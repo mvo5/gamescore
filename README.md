@@ -13,5 +13,22 @@ edit game at http://localhost:8080/score_edit.html
 display status at http://localhost:8080/score.html
 ```
 
+## Example use
+
+The way it is desinged is that you have the browser windows with
+`score_edit.html` on your laptop display. It is used to control
+the time and goals in the match. Use an external monitor to display
+the current time and score to the players on the pitch.
+
+## TODO
+
+Add option to select if `score_html.html` is displayed mirrored
+or not. If you use an external monitor mirroring is what we want
+so that you and the external monitor have the same team names on
+the same sides. However if e.g. a beamer is used, things are
+different and the teams may not need to be mirrored.
+
+
+
 [travis-image]: https://travis-ci.org/mvo5/gamescore.svg?branch=master
 [travis-url]: https://travis-ci.org/mvo5/gamescore

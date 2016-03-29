@@ -107,3 +107,18 @@ func (g *GamescoreTestSuite) TestTick(c *C) {
 	c.Assert(currentGame.TimeLeft, Equals, testGame.TimeLeft-time.Duration(100*time.Millisecond))
 	c.Assert(currentGame.TimeStr, Equals, "01:59")
 }
+
+func (g *GamescoreTestSuite) TestFormatTime(c *C) {
+	currentGame = Game{TimeLeft: 320 * time.Second}
+	formatTime()
+	c.Assert(currentGame.TimeStr, Equals, "05:20")
+
+	currentGame = Game{TimeLeft: 50 * time.Second}
+	formatTime()
+	c.Assert(currentGame.TimeStr, Equals, "00:500")
+
+	currentGame = Game{TimeLeft: 5 * time.Second}
+	formatTime()
+	c.Assert(currentGame.TimeStr, Equals, "00:050")
+
+}

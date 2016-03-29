@@ -68,10 +68,11 @@ func formatTime() {
 	// sub 1 min gets 100 millisecond resolution
 	if min >= 1 {
 		sec /= time.Second
+		currentGame.TimeStr = fmt.Sprintf("%02d:%02d", min, sec)
 	} else {
 		sec /= 100 * time.Millisecond
+		currentGame.TimeStr = fmt.Sprintf("%02d:%03d", min, sec)
 	}
-	currentGame.TimeStr = fmt.Sprintf("%02d:%02d", min, sec)
 }
 
 func tick() {

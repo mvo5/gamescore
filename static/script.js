@@ -71,6 +71,9 @@ $(document).ready(function(){
             // check if a new game has started
             if (json.Running == true) {
                 audioPlayed = false
+                $('#timeout').text("Pause time")
+            } else {
+                $('#timeout').text("Start time")
             }
 
             // play alarm

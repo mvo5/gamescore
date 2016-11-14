@@ -113,6 +113,23 @@ $(document).ready(function(){
     $('#timeout').click(function() {doTimeout()})
     $('#swap').click(function() {changeSides()})
     $('#testSound').click(playSound);
+
+    // keyboard shortcuts
+    $('[data-toggle="tooltip"]').tooltip();
+    $(document).keyup(function (event) {
+        console.log(event);
+        switch (event.key) {
+        case "1":
+            scoreTeam('team1', +1);
+            break;
+        case "2":
+            scoreTeam('team2', +1);
+            break;
+        case " ":
+            doTimeout();
+            break;
+        }
+    });
     
     window.setInterval(status, 100);
 });

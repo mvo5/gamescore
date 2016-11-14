@@ -43,3 +43,8 @@ h1 {
     padding-bottom:2em;
     background-color:black;
 }
+
+.tooltip.top .tooltip-inner {
+    background-color:yellow;
+    color:black;
+}

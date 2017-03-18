@@ -118,14 +118,17 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
     $(document).keyup(function (event) {
         console.log(event);
-        switch (event.key) {
-        case "1":
+        switch (event.keyCode) {
+            // left arrow
+        case 37:
             scoreTeam('team1', +1);
             break;
-        case "2":
+            // right arrow
+        case 39:
             scoreTeam('team2', +1);
             break;
-        case " ":
+            // down arrow
+        case 40:
             doTimeout();
             break;
         }

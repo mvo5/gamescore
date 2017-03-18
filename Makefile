@@ -17,6 +17,6 @@ clean:
 	rm -f gamescore gamescore.exe
 
 dist: build buildwin
-	(cd ..; zip -r gamescore-$(shell date '+%Y%m%d-%H%M').zip gamescore)
+	(cd ..; zip --exclude '*.git*' -r gamescore-$(shell date '+%Y%m%d-%H%M').zip gamescore)
 
 .PHONY: deps check build buildwin clean dist

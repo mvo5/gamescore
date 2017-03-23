@@ -18,11 +18,12 @@ var _ = Suite(&GamescoreIntegrationTestSuite{})
 type GamescoreIntegrationTestSuite struct {
 	gamescore *exec.Cmd
 	wd        selenium.WebDriver
-	sel       *selenium.Service
+
+	sel *selenium.Service
 }
 
 func (g *GamescoreIntegrationTestSuite) SetUpSuite(c *C) {
-	sel, err := selenium.NewSeleniumService("./selenium-server-standalone-3.0.1.jar", 4444, selenium.StartFrameBuffer())
+	sel, err := selenium.NewSeleniumService("./selenium-server-standalone-3.0.1.jar", 4444)
 	c.Assert(err, IsNil)
 	g.sel = sel
 }
@@ -47,8 +48,12 @@ func (g *GamescoreIntegrationTestSuite) SetUpTest(c *C) {
 	}
 
 	caps := selenium.Capabilities{
-		"browserName":            "firefox",
-		"webdriver.gecko.driver": "./geckodriver",
+		/*
+			"browserName":            "firefox",
+			"webdriver.gecko.driver": "./geckodriver",
+		*/
+		"browserName":       "htmlunit",
+		"javascriptEnabled": true,
 	}
 	wd, err := selenium.NewRemote(caps, "")
 	c.Assert(err, IsNil)

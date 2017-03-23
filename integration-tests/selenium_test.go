@@ -1,4 +1,4 @@
-package gamescore_test
+package integration_tests
 
 import (
 	"net"

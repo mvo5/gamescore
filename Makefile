@@ -2,7 +2,7 @@ all: check build buildwin
 
 deps:
 	go get github.com/gorilla/mux gopkg.in/check.v1
-	(cd static ; ./get-jquery.sh)
+	make -C static
 
 check: deps
 	go build

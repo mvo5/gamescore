@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"runtime"
 	"time"
 
@@ -177,7 +178,8 @@ func makeRouter() *mux.Router {
 	r.HandleFunc("/api/1/status", status).Methods("GET")
 	r.HandleFunc("/api/1/create", create).Methods("POST")
 	r.HandleFunc("/api/1/changeState", stateChange).Methods("POST")
-	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./static/")))
+	prefix := os.Getenv("SNAP")
+	r.PathPrefix("/").Handler(http.FileServer(http.Dir(filepath.Join(prefix, "./static/"))))
 
 	return r
 }

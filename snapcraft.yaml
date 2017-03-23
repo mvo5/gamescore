@@ -1,0 +1,21 @@
+name: gamescore
+version: 1.0.1
+summary: Gamescore is a system to display and edit the score of a sports game.
+description: |
+  Display/edit the score of a game like hockey, soccer etc.
+confinement: strict
+
+apps:
+  gamescore:
+    command: bin/gamescore
+    plugs: [network-bind]
+
+parts:
+  gamescore-bin:
+    plugin: go
+    source: ./
+  gamescore-assets:
+    plugin: make
+    source: ./static
+
+

@@ -8,6 +8,7 @@ import (
 	"log"
 	"net"
 	"net/http"
+	"os"
 	"os/exec"
 	"runtime"
 	"time"
@@ -211,6 +212,8 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	launchBrowser(editUrl, statusUrl)
+	if os.Getenv("GAMESCORE_SKIP_LAUNCH_BROWSER") == "" {
+		launchBrowser(editUrl, statusUrl)
+	}
 	log.Fatal(http.Serve(listener, nil))
 }

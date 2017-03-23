@@ -5,7 +5,9 @@ deps:
 	(cd static ; ./get-jquery.sh)
 
 check: deps
+	go build
 	go test
+	(cd integration-tests; ./setup.sh; go get -t . ; go test)
 
 build: deps main.go main_test.go 
 	go build
@@ -17,6 +19,6 @@ clean:
 	rm -f gamescore gamescore.exe
 
 dist: build buildwin
-	(cd ..; zip --exclude '*.git*' -r gamescore-$(shell date '+%Y%m%d-%H%M').zip gamescore)
+	(cd ..; zip --exclude '*integration-tests*' --exclude '*.git*' -r gamescore-$(shell date '+%Y%m%d-%H%M').zip gamescore)
 
 .PHONY: deps check build buildwin clean dist

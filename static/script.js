@@ -116,20 +116,23 @@ $(document).ready(function(){
 
     // keyboard shortcuts
     $('[data-toggle="tooltip"]').tooltip();
-    $(document).keyup(function (event) {
+    $(document).keypress(function (event) {
         console.log(event);
         switch (event.keyCode) {
             // left arrow
         case 37:
             scoreTeam('team1', +1);
+            event.preventDefault()
             break;
             // right arrow
         case 39:
             scoreTeam('team2', +1);
+            event.preventDefault()
             break;
             // down arrow
         case 40:
             doTimeout();
+            event.preventDefault()
             break;
         }
     });

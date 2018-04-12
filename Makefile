@@ -1,4 +1,4 @@
-all: check build buildwin
+all: check build buildwin buildmac
 
 deps:
 	go get github.com/gorilla/mux gopkg.in/check.v1
@@ -15,8 +15,11 @@ build: deps main.go main_test.go
 buildwin:
 	GOOS=windows GOARCH=386 go build -o gamescore.exe
 
+buildmac:
+	GOOS=darwin GOARCH=amd64 go build -o gamescore.macos
+
 clean:
-	rm -f gamescore gamescore.exe
+	rm -f gamescore gamescore.exe gamescore.macos
 
 dist: build buildwin
 	(cd ..; zip --exclude '*parts*' --exclude '*prime*' --exclude '*integration-tests*' --exclude '*.git*' -r gamescore-$(shell date '+%Y%m%d-%H%M').zip gamescore)

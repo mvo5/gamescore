@@ -98,9 +98,16 @@ $(document).ready(function(){
         // change sides and create new game with swaped names/goals
         $('#input_team1_name').val(team2);
         $('#input_team2_name').val(team1);
-        create();
-        scoreTeam('team1', parseInt(scoreTeam2));
-        scoreTeam('team2', parseInt(scoreTeam1));
+        // we need to switch sides in a single POST to prevent races
+        var switchSides = getGameData();
+        switchSides["team1"].Goals = parseInt(scoreTeam2);
+        switchSides["team2"].Goals = parseInt(scoreTeam1);
+        $.ajax({
+            type: 'post',
+            url: "/api/1/create",
+            dataType: 'json',
+            data: JSON.stringify(switchSides)
+        });
     }
 
     // the callbacks

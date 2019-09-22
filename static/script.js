@@ -128,12 +128,20 @@ $(document).ready(function(){
         switch (event.keyCode) {
             // left arrow
         case 37:
-            scoreTeam('team1', +1);
+            if (event.shiftKey == false) {
+                scoreTeam('team1', +1);
+            } else {
+                scoreTeam('team1', -1);
+            }
             event.preventDefault()
             break;
             // right arrow
         case 39:
-            scoreTeam('team2', +1);
+            if (event.shiftKey == false) {
+                scoreTeam('team2', +1);
+            } else {
+                scoreTeam('team2', -1);
+            }
             event.preventDefault()
             break;
             // down arrow

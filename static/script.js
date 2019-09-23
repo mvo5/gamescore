@@ -123,7 +123,7 @@ $(document).ready(function(){
 
     // keyboard shortcuts
     $('[data-toggle="tooltip"]').tooltip();
-    $(document).keypress(function (event) {
+    $(document).keydown(function (event) {
         console.log(event);
         switch (event.keyCode) {
             // left arrow

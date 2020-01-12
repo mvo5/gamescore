@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -200,13 +201,58 @@ func launchBrowser(editUrl, statusUrl string) {
 	}
 }
 
+func setupApMode() error {
+	return fmt.Errorf("AP mode is not implemented yet")
+}
+
 func main() {
+	// make cmdline options
+	apMode := flag.Bool("ap-mode", false, "run in AP mode")
+	flag.Parse()
+
 	r := makeRouter()
 
 	// ensure our timer is runnning
 	go tick()
 
+	/* TODO:
+	- add -ap mode switch
+	- check if ap mode is supported by the HW (iw list|grep AP)
+	- auto-detect network interface name
+	- setup hostapd, enable dhcp on network interface
+	- add gamescore alias for localhost
+	- configure wlp3s0 network
+	- turn off network-manager
+	- TODO: deal with DNS (add gamescore host entry etc)
+	- run hostadp with:
+	  $ cat > hostapd-test.conf <<EOF
+	  interface=wlp3s0
+	  driver=nl80211
+	  ssid=gamescore-1
+	  channel=1
+	  EOF
+	  $ sudo hostapd ./hostapd-test.conf
+	- run dnsmasq:
+	  cat > dnsmasq.conf <<EOF
+	  // FIXME: drive entirely via commandline
+	  interface=wlp3s0
+	  dhcp-range=192.168.2.10,192.168.2.200,12h
+	  EOF
+	  sudo dnsmasq -k -d -C ./dnsmasq.conf --strict-order --bind-interfaces --except-interface=lo --interface=wlp3s0 --listen-address=192.168.2.1
+	- listen to ":8080" in this mode (use port 80?)
+	- display url to connect to (via QR code?)
+	- provide "gamescore" hostname
+	- think about security (one "priv" connection only)?
+	*/
+
 	listen := "localhost:8080"
+	if *apMode {
+		if err := setupApMode(); err != nil {
+			log.Fatalf("cannot setup AP mode: %v", err)
+		}
+		listen = ":8080"
+	}
+	// FIXME: how nicer url, auto redirect from "/" (?)
 	editUrl := fmt.Sprintf("http://%s/score_edit.html", listen)
 	statusUrl := fmt.Sprintf("http://%s/score.html", listen)
 	fmt.Printf("edit game at %s\n", editUrl)

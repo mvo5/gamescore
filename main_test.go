@@ -102,10 +102,15 @@ func (g *GamescoreTestSuite) TestChangeState(c *C) {
 
 func (g *GamescoreTestSuite) TestTick(c *C) {
 	currentGame = *testGame
+	currentGame.startTime = time.Now()
+	currentGame.duration = 120 * time.Second
 
 	tickOnce()
-	c.Assert(currentGame.TimeLeft, Equals, testGame.TimeLeft-time.Duration(100*time.Millisecond))
 	c.Assert(currentGame.TimeStr, Equals, "01:59")
+	for i := 0; i < 11; i++ {
+		tickOnce()
+	}
+	c.Assert(currentGame.TimeStr, Equals, "01:58")
 }
 
 func (g *GamescoreTestSuite) TestFormatTime(c *C) {

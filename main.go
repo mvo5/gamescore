@@ -23,12 +23,18 @@ type Team struct {
 }
 
 type Game struct {
-	Team1    Team
-	Team2    Team
+	Team1 Team
+	Team2 Team
+
+	startTime time.Time
+	duration  time.Duration
+
+	// XXX: remove from api?
 	TimeLeft time.Duration
 	TimeStr  string
-	Half     int
-	Running  bool
+
+	Half    int
+	Running bool
 }
 
 type StateChange struct {
@@ -54,7 +60,9 @@ func init() {
 }
 
 func tickOnce() {
-	currentGame.TimeLeft -= time.Duration(100 * time.Millisecond)
+	gameEndTime := currentGame.startTime.Add(currentGame.duration)
+	timeLeft := gameEndTime.Sub(time.Now())
+	currentGame.TimeLeft = timeLeft
 	if currentGame.TimeLeft <= 0 {
 		currentGame.Running = false
 	}
@@ -80,6 +88,8 @@ func formatTime() {
 func tick() {
 	for {
 		if !currentGame.Running {
+			currentGame.duration = currentGame.TimeLeft
+			currentGame.startTime = time.Now()
 			time.Sleep(100 * time.Millisecond)
 			continue
 		}
@@ -132,7 +142,7 @@ func create(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	newGame.TimeLeft = time.Duration(newGame.TimeLeft)
+	newGame.duration = time.Duration(newGame.TimeLeft)
 	currentGame = newGame
 	formatTime()
 

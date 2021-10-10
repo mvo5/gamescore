@@ -4,7 +4,7 @@ $(document).ready(function(){
     function getGameData() {
         return {
             // ui gets time in minutes, api expects nanoseconds so 1000000000
-            timeleft: parseInt($("#input_time").val()) * 60 * 1000000000,
+            timeLeft: parseInt($("#input_time").val()) * 60 * 1000000000,
             team1: {
                 name: $("#input_team1_name").val()
             },

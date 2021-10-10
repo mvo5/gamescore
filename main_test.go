@@ -62,7 +62,7 @@ var testGame = &Game{
 		Goals: 7,
 	},
 	TimeLeft: 120 * time.Second,
-	TimeStr:  "02:00",
+	Countdown: &Countdown{},
 	Half:     1,
 	Running:  false,
 }
@@ -102,28 +102,14 @@ func (g *GamescoreTestSuite) TestChangeState(c *C) {
 
 func (g *GamescoreTestSuite) TestTick(c *C) {
 	currentGame = *testGame
-	currentGame.startTime = time.Now()
-	currentGame.duration = 120 * time.Second
+	currentGame.Countdown.Set(120*time.Second)
+	currentGame.Countdown.Start()
 
 	tickOnce()
-	c.Assert(currentGame.TimeStr, Equals, "01:59")
+	c.Assert(currentGame.Countdown.String(), Equals, "01:59")
 	for i := 0; i < 11; i++ {
 		tickOnce()
 	}
-	c.Assert(currentGame.TimeStr, Equals, "01:58")
+	c.Assert(currentGame.Countdown.String(), Equals, "01:58")
 }
 
-func (g *GamescoreTestSuite) TestFormatTime(c *C) {
-	currentGame = Game{TimeLeft: 320 * time.Second}
-	formatTime()
-	c.Assert(currentGame.TimeStr, Equals, "05:20")
-
-	currentGame = Game{TimeLeft: 50 * time.Second}
-	formatTime()
-	c.Assert(currentGame.TimeStr, Equals, "00:500")
-
-	currentGame = Game{TimeLeft: 5 * time.Second}
-	formatTime()
-	c.Assert(currentGame.TimeStr, Equals, "00:050")
-
-}

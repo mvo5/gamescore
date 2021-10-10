@@ -26,15 +26,14 @@ type Game struct {
 	Team1 Team
 	Team2 Team
 
-	startTime time.Time
-	duration  time.Duration
-
-	// XXX: remove from api?
-	TimeLeft time.Duration
-	TimeStr  string
+	// XXX: cleanup and handle all of this via "Countdown"
+	TimeLeft  time.Duration
+	TimeStr   string
 
 	Half    int
 	Running bool
+
+	Countdown *Countdown
 }
 
 type StateChange struct {
@@ -54,44 +53,28 @@ func init() {
 		Team2: Team{
 			Name: "Guest",
 		},
+		Countdown: &Countdown{},
 	}
-	// and ensure time is availale
-	formatTime()
 }
 
 func tickOnce() {
-	gameEndTime := currentGame.startTime.Add(currentGame.duration)
-	timeLeft := gameEndTime.Sub(time.Now())
-	currentGame.TimeLeft = timeLeft
-	if currentGame.TimeLeft <= 0 {
+	if currentGame.Countdown.TimeLeft() <= 0 {
 		currentGame.Running = false
-	}
-
-	formatTime()
-	time.Sleep(100 * time.Millisecond)
-}
-
-func formatTime() {
-	// format the time nicely for the javascript
-	min := currentGame.TimeLeft / (60 * time.Second)
-	sec := currentGame.TimeLeft % (60 * time.Second)
-	// sub 1 min gets 100 millisecond resolution
-	if min >= 1 {
-		sec /= time.Second
-		currentGame.TimeStr = fmt.Sprintf("%02d:%02d", min, sec)
+		currentGame.TimeStr = "00:00"
+		currentGame.TimeLeft = 0
 	} else {
-		sec /= 100 * time.Millisecond
-		currentGame.TimeStr = fmt.Sprintf("%02d:%03d", min, sec)
+		currentGame.TimeStr = currentGame.Countdown.String()
+		currentGame.TimeLeft = currentGame.Countdown.TimeLeft()
 	}
+	time.Sleep(100 * time.Millisecond)
 }
 
 func tick() {
 	for {
-		if !currentGame.Running {
-			currentGame.duration = currentGame.TimeLeft
-			currentGame.startTime = time.Now()
-			time.Sleep(100 * time.Millisecond)
-			continue
+		if currentGame.Running {
+			currentGame.Countdown.Start()
+		} else {
+			currentGame.Countdown.Stop()
 		}
 		tickOnce()
 	}
@@ -142,9 +125,8 @@ func create(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	newGame.duration = time.Duration(newGame.TimeLeft)
+	newGame.Countdown = NewCountdown(newGame.TimeLeft)
 	currentGame = newGame
-	formatTime()
 
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusCreated)

@@ -21,7 +21,7 @@ buildmac:
 clean:
 	rm -f gamescore gamescore.exe gamescore.macos
 
-dist: build buildwin
+dist: build buildwin buildmac
 	(cd ..; zip --exclude '*parts*' --exclude '*prime*' --exclude '*integration-tests*' --exclude '*.git*' -r gamescore-$(shell date '+%Y%m%d-%H%M').zip gamescore)
 
 .PHONY: deps check build buildwin clean dist

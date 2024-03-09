@@ -28,6 +28,14 @@ so that you and the external monitor have the same team names on
 the same sides. However if e.g. a beamer is used, things are
 different and the teams may not need to be mirrored.
 
+# Integration with einradhockeyliga XML
+
+Get the xml from 
+https://einrad.hockey/xml/spielplan?turnier_id=1021
+and upload in the button.
+
+Get the "turnier_id" by clicking at "Turnier details" and check the
+URL (e.g. https://einrad.hockey/liga/turnier_details?turnier_id=1198)
 
 
 [travis-image]: https://travis-ci.org/mvo5/gamescore.svg?branch=master

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spielplan><spiel><spiel_id>1</spiel_id><team_id_a>154</team_id_a><teamname_a>Crazy Ducks</teamname_a><team_id_b>1043</team_id_b><teamname_b>Quer-durchs-Land*</teamname_b><schiri_team_id_a>86</schiri_team_id_a><schiri_team_id_b>620</schiri_team_id_b><tore_a></tore_a><tore_b></tore_b><penalty_a></penalty_a><penalty_b></penalty_b><zeit>10:30</zeit><anzahl_halbzeiten>2</anzahl_halbzeiten><halbzeit_laenge>15</halbzeit_laenge><puffer>5</puffer><farbe_a></farbe_a><farbe_b></farbe_b><schiri_teamname_a>MJC Trier - Die Römer</schiri_teamname_a><schiri_teamname_b>Black Stars</schiri_teamname_b></spiel><spiel><spiel_id>2</spiel_id><team_id_a>620</team_id_a><teamname_a>Black Stars</teamname_a><team_id_b>86</team_id_b><teamname_b>MJC Trier - Die Römer</teamname_b><schiri_team_id_a>1043</schiri_team_id_a><schiri_team_id_b>154</schiri_team_id_b><tore_a></tore_a><tore_b></tore_b><penalty_a></penalty_a><penalty_b></penalty_b><zeit>11:05</zeit><anzahl_halbzeiten>2</anzahl_halbzeiten><halbzeit_laenge>15</halbzeit_laenge><puffer>5</puffer><farbe_a>#000000</farbe_a><farbe_b>#024efd</farbe_b><schiri_teamname_a>Quer-durchs-Land*</schiri_teamname_a><schiri_teamname_b>Crazy Ducks</schiri_teamname_b></spiel><spiel><spiel_id>3</spiel_id><team_id_a>244</team_id_a><teamname_a>MJC Trier - Die Legionäre</teamname_a><team_id_b>1043</team_id_b><teamname_b>Quer-durchs-Land*</teamname_b><schiri_team_id_a>154</schiri_team_id_a><schiri_team_id_b>620</schiri_team_id_b><tore_a></tore_a><tore_b></tore_b><penalty_a></penalty_a><penalty_b></penalty_b><zeit>11:40</zeit><anzahl_halbzeiten>2</anzahl_halbzeiten><halbzeit_laenge>15</halbzeit_laenge><puffer>5</puffer><farbe_a></farbe_a><farbe_b></farbe_b><schiri_teamname_a>Crazy Ducks</schiri_teamname_a><schiri_teamname_b>Black Stars</schiri_teamname_b></spiel><spiel><spiel_id>4</spiel_id><team_id_a>154</team_id_a><teamname_a>Crazy Ducks</teamname_a><team_id_b>86</team_id_b><teamname_b>MJC Trier - Die Römer</teamname_b><schiri_team_id_a>1043</schiri_team_id_a><schiri_team_id_b>244</schiri_team_id_b><tore_a></tore_a><tore_b></tore_b><penalty_a></penalty_a><penalty_b></penalty_b><zeit>12:15</zeit><anzahl_halbzeiten>2</anzahl_halbzeiten><halbzeit_laenge>15</halbzeit_laenge><puffer>5</puffer><farbe_a>#000000</farbe_a><farbe_b>#024efd</farbe_b><schiri_teamname_a>Quer-durchs-Land*</schiri_teamname_a><schiri_teamname_b>MJC Trier - Die Legionäre</schiri_teamname_b></spiel><spiel><spiel_id>5</spiel_id><team_id_a>620</team_id_a><teamname_a>Black Stars</teamname_a><team_id_b>244</team_id_b><teamname_b>MJC Trier - Die Legionäre</teamname_b><schiri_team_id_a>154</schiri_team_id_a><schiri_team_id_b>86</schiri_team_id_b><tore_a></tore_a><tore_b></tore_b><penalty_a></penalty_a><penalty_b></penalty_b><zeit>12:50</zeit><anzahl_halbzeiten>2</anzahl_halbzeiten><halbzeit_laenge>15</halbzeit_laenge><puffer>5</puffer><farbe_a>#000000</farbe_a><farbe_b>#ff4015</farbe_b><schiri_teamname_a>Crazy Ducks</schiri_teamname_a><schiri_teamname_b>MJC Trier - Die Römer</schiri_teamname_b></spiel><spiel><spiel_id>6</spiel_id><team_id_a>86</team_id_a><teamname_a>MJC Trier - Die Römer</teamname_a><team_id_b>1043</team_id_b><teamname_b>Quer-durchs-Land*</teamname_b><schiri_team_id_a>620</schiri_team_id_a><schiri_team_id_b>244</schiri_team_id_b><tore_a></tore_a><tore_b></tore_b><penalty_a></penalty_a><penalty_b></penalty_b><zeit>13:25</zeit><anzahl_halbzeiten>2</anzahl_halbzeiten><halbzeit_laenge>15</halbzeit_laenge><puffer>5</puffer><farbe_a></farbe_a><farbe_b></farbe_b><schiri_teamname_a>Black Stars</schiri_teamname_a><schiri_teamname_b>MJC Trier - Die Legionäre</schiri_teamname_b></spiel><spiel><spiel_id>7</spiel_id><team_id_a>154</team_id_a><teamname_a>Crazy Ducks</teamname_a><team_id_b>244</team_id_b><teamname_b>MJC Trier - Die Legionäre</teamname_b><schiri_team_id_a>86</schiri_team_id_a><schiri_team_id_b>1043</schiri_team_id_b><tore_a></tore_a><tore_b></tore_b><penalty_a></penalty_a><penalty_b></penalty_b><zeit>14:00</zeit><anzahl_halbzeiten>2</anzahl_halbzeiten><halbzeit_laenge>15</halbzeit_laenge><puffer>5</puffer><farbe_a>#000000</farbe_a><farbe_b>#ff4015</farbe_b><schiri_teamname_a>MJC Trier - Die Römer</schiri_teamname_a><schiri_teamname_b>Quer-durchs-Land*</schiri_teamname_b></spiel><spiel><spiel_id>8</spiel_id><team_id_a>620</team_id_a><teamname_a>Black Stars</teamname_a><team_id_b>1043</team_id_b><teamname_b>Quer-durchs-Land*</teamname_b><schiri_team_id_a>154</schiri_team_id_a><schiri_team_id_b>244</schiri_team_id_b><tore_a></tore_a><tore_b></tore_b><penalty_a></penalty_a><penalty_b></penalty_b><zeit>14:35</zeit><anzahl_halbzeiten>2</anzahl_halbzeiten><halbzeit_laenge>15</halbzeit_laenge><puffer>5</puffer><farbe_a></farbe_a><farbe_b></farbe_b><schiri_teamname_a>Crazy Ducks</schiri_teamname_a><schiri_teamname_b>MJC Trier - Die Legionäre</schiri_teamname_b></spiel><spiel><spiel_id>9</spiel_id><team_id_a>244</team_id_a><teamname_a>MJC Trier - Die Legionäre</teamname_a><team_id_b>86</team_id_b><teamname_b>MJC Trier - Die Römer</teamname_b><schiri_team_id_a>620</schiri_team_id_a><schiri_team_id_b>1043</schiri_team_id_b><tore_a></tore_a><tore_b></tore_b><penalty_a></penalty_a><penalty_b></penalty_b><zeit>15:10</zeit><anzahl_halbzeiten>2</anzahl_halbzeiten><halbzeit_laenge>15</halbzeit_laenge><puffer>5</puffer><farbe_a>#ff4015</farbe_a><farbe_b>#024efd</farbe_b><schiri_teamname_a>Black Stars</schiri_teamname_a><schiri_teamname_b>Quer-durchs-Land*</schiri_teamname_b></spiel><spiel><spiel_id>10</spiel_id><team_id_a>620</team_id_a><teamname_a>Black Stars</teamname_a><team_id_b>154</team_id_b><teamname_b>Crazy Ducks</teamname_b><schiri_team_id_a>244</schiri_team_id_a><schiri_team_id_b>86</schiri_team_id_b><tore_a></tore_a><tore_b></tore_b><penalty_a></penalty_a><penalty_b></penalty_b><zeit>15:45</zeit><anzahl_halbzeiten>2</anzahl_halbzeiten><halbzeit_laenge>15</halbzeit_laenge><puffer>5</puffer><farbe_a>#000000</farbe_a><farbe_b>#ff6a00</farbe_b><schiri_teamname_a>MJC Trier - Die Legionäre</schiri_teamname_a><schiri_teamname_b>MJC Trier - Die Römer</schiri_teamname_b></spiel></spielplan>
+<?xml version="1.0" encoding="UTF-8"?>
+<spielplan>
+  <spiel>
+    <spiel_id>1</spiel_id>
+    <team_id_a>154</team_id_a>
+    <teamname_a>Crazy Ducks</teamname_a>
+    <team_id_b>1043</team_id_b>
+    <teamname_b>Quer-durchs-Land*</teamname_b>
+    <schiri_team_id_a>86</schiri_team_id_a>
+    <schiri_team_id_b>620</schiri_team_id_b>
+    <tore_a/>
+    <tore_b/>
+    <penalty_a/>
+    <penalty_b/>
+    <zeit>10:30</zeit>
+    <anzahl_halbzeiten>2</anzahl_halbzeiten>
+    <halbzeit_laenge>15</halbzeit_laenge>
+    <puffer>5</puffer>
+    <farbe_a/>
+    <farbe_b/>
+    <schiri_teamname_a>MJC Trier - Die Römer</schiri_teamname_a>
+    <schiri_teamname_b>Black Stars</schiri_teamname_b>
+  </spiel>
+  <spiel>
+    <spiel_id>2</spiel_id>
+    <team_id_a>620</team_id_a>
+    <teamname_a>Black Stars</teamname_a>
+    <team_id_b>86</team_id_b>
+    <teamname_b>MJC Trier - Die Römer</teamname_b>
+    <schiri_team_id_a>1043</schiri_team_id_a>
+    <schiri_team_id_b>154</schiri_team_id_b>
+    <tore_a/>
+    <tore_b/>
+    <penalty_a/>
+    <penalty_b/>
+    <zeit>11:05</zeit>
+    <anzahl_halbzeiten>2</anzahl_halbzeiten>
+    <halbzeit_laenge>15</halbzeit_laenge>
+    <puffer>5</puffer>
+    <farbe_a>#000000</farbe_a>
+    <farbe_b>#024efd</farbe_b>
+    <schiri_teamname_a>Quer-durchs-Land*</schiri_teamname_a>
+    <schiri_teamname_b>Crazy Ducks</schiri_teamname_b>
+  </spiel>
+  <spiel>
+    <spiel_id>3</spiel_id>
+    <team_id_a>244</team_id_a>
+    <teamname_a>MJC Trier - Die Legionäre</teamname_a>
+    <team_id_b>1043</team_id_b>
+    <teamname_b>Quer-durchs-Land*</teamname_b>
+    <schiri_team_id_a>154</schiri_team_id_a>
+    <schiri_team_id_b>620</schiri_team_id_b>
+    <tore_a/>
+    <tore_b/>
+    <penalty_a/>
+    <penalty_b/>
+    <zeit>11:40</zeit>
+    <anzahl_halbzeiten>2</anzahl_halbzeiten>
+    <halbzeit_laenge>15</halbzeit_laenge>
+    <puffer>5</puffer>
+    <farbe_a/>
+    <farbe_b/>
+    <schiri_teamname_a>Crazy Ducks</schiri_teamname_a>
+    <schiri_teamname_b>Black Stars</schiri_teamname_b>
+  </spiel>
+  <spiel>
+    <spiel_id>4</spiel_id>
+    <team_id_a>154</team_id_a>
+    <teamname_a>Crazy Ducks</teamname_a>
+    <team_id_b>86</team_id_b>
+    <teamname_b>MJC Trier - Die Römer</teamname_b>
+    <schiri_team_id_a>1043</schiri_team_id_a>
+    <schiri_team_id_b>244</schiri_team_id_b>
+    <tore_a/>
+    <tore_b/>
+    <penalty_a/>
+    <penalty_b/>
+    <zeit>12:15</zeit>
+    <anzahl_halbzeiten>2</anzahl_halbzeiten>
+    <halbzeit_laenge>15</halbzeit_laenge>
+    <puffer>5</puffer>
+    <farbe_a>#000000</farbe_a>
+    <farbe_b>#024efd</farbe_b>
+    <schiri_teamname_a>Quer-durchs-Land*</schiri_teamname_a>
+    <schiri_teamname_b>MJC Trier - Die Legionäre</schiri_teamname_b>
+  </spiel>
+  <spiel>
+    <spiel_id>5</spiel_id>
+    <team_id_a>620</team_id_a>
+    <teamname_a>Black Stars</teamname_a>
+    <team_id_b>244</team_id_b>
+    <teamname_b>MJC Trier - Die Legionäre</teamname_b>
+    <schiri_team_id_a>154</schiri_team_id_a>
+    <schiri_team_id_b>86</schiri_team_id_b>
+    <tore_a/>
+    <tore_b/>
+    <penalty_a/>
+    <penalty_b/>
+    <zeit>12:50</zeit>
+    <anzahl_halbzeiten>2</anzahl_halbzeiten>
+    <halbzeit_laenge>15</halbzeit_laenge>
+    <puffer>5</puffer>
+    <farbe_a>#000000</farbe_a>
+    <farbe_b>#ff4015</farbe_b>
+    <schiri_teamname_a>Crazy Ducks</schiri_teamname_a>
+    <schiri_teamname_b>MJC Trier - Die Römer</schiri_teamname_b>
+  </spiel>
+  <spiel>
+    <spiel_id>6</spiel_id>
+    <team_id_a>86</team_id_a>
+    <teamname_a>MJC Trier - Die Römer</teamname_a>
+    <team_id_b>1043</team_id_b>
+    <teamname_b>Quer-durchs-Land*</teamname_b>
+    <schiri_team_id_a>620</schiri_team_id_a>
+    <schiri_team_id_b>244</schiri_team_id_b>
+    <tore_a/>
+    <tore_b/>
+    <penalty_a/>
+    <penalty_b/>
+    <zeit>13:25</zeit>
+    <anzahl_halbzeiten>2</anzahl_halbzeiten>
+    <halbzeit_laenge>15</halbzeit_laenge>
+    <puffer>5</puffer>
+    <farbe_a/>
+    <farbe_b/>
+    <schiri_teamname_a>Black Stars</schiri_teamname_a>
+    <schiri_teamname_b>MJC Trier - Die Legionäre</schiri_teamname_b>
+  </spiel>
+  <spiel>
+    <spiel_id>7</spiel_id>
+    <team_id_a>154</team_id_a>
+    <teamname_a>Crazy Ducks</teamname_a>
+    <team_id_b>244</team_id_b>
+    <teamname_b>MJC Trier - Die Legionäre</teamname_b>
+    <schiri_team_id_a>86</schiri_team_id_a>
+    <schiri_team_id_b>1043</schiri_team_id_b>
+    <tore_a/>
+    <tore_b/>
+    <penalty_a/>
+    <penalty_b/>
+    <zeit>14:00</zeit>
+    <anzahl_halbzeiten>2</anzahl_halbzeiten>
+    <halbzeit_laenge>15</halbzeit_laenge>
+    <puffer>5</puffer>
+    <farbe_a>#000000</farbe_a>
+    <farbe_b>#ff4015</farbe_b>
+    <schiri_teamname_a>MJC Trier - Die Römer</schiri_teamname_a>
+    <schiri_teamname_b>Quer-durchs-Land*</schiri_teamname_b>
+  </spiel>
+  <spiel>
+    <spiel_id>8</spiel_id>
+    <team_id_a>620</team_id_a>
+    <teamname_a>Black Stars</teamname_a>
+    <team_id_b>1043</team_id_b>
+    <teamname_b>Quer-durchs-Land*</teamname_b>
+    <schiri_team_id_a>154</schiri_team_id_a>
+    <schiri_team_id_b>244</schiri_team_id_b>
+    <tore_a/>
+    <tore_b/>
+    <penalty_a/>
+    <penalty_b/>
+    <zeit>14:35</zeit>
+    <anzahl_halbzeiten>2</anzahl_halbzeiten>
+    <halbzeit_laenge>15</halbzeit_laenge>
+    <puffer>5</puffer>
+    <farbe_a/>
+    <farbe_b/>
+    <schiri_teamname_a>Crazy Ducks</schiri_teamname_a>
+    <schiri_teamname_b>MJC Trier - Die Legionäre</schiri_teamname_b>
+  </spiel>
+  <spiel>
+    <spiel_id>9</spiel_id>
+    <team_id_a>244</team_id_a>
+    <teamname_a>MJC Trier - Die Legionäre</teamname_a>
+    <team_id_b>86</team_id_b>
+    <teamname_b>MJC Trier - Die Römer</teamname_b>
+    <schiri_team_id_a>620</schiri_team_id_a>
+    <schiri_team_id_b>1043</schiri_team_id_b>
+    <tore_a/>
+    <tore_b/>
+    <penalty_a/>
+    <penalty_b/>
+    <zeit>15:10</zeit>
+    <anzahl_halbzeiten>2</anzahl_halbzeiten>
+    <halbzeit_laenge>15</halbzeit_laenge>
+    <puffer>5</puffer>
+    <farbe_a>#ff4015</farbe_a>
+    <farbe_b>#024efd</farbe_b>
+    <schiri_teamname_a>Black Stars</schiri_teamname_a>
+    <schiri_teamname_b>Quer-durchs-Land*</schiri_teamname_b>
+  </spiel>
+  <spiel>
+    <spiel_id>10</spiel_id>
+    <team_id_a>620</team_id_a>
+    <teamname_a>Black Stars</teamname_a>
+    <team_id_b>154</team_id_b>
+    <teamname_b>Crazy Ducks</teamname_b>
+    <schiri_team_id_a>244</schiri_team_id_a>
+    <schiri_team_id_b>86</schiri_team_id_b>
+    <tore_a/>
+    <tore_b/>
+    <penalty_a/>
+    <penalty_b/>
+    <zeit>15:45</zeit>
+    <anzahl_halbzeiten>2</anzahl_halbzeiten>
+    <halbzeit_laenge>15</halbzeit_laenge>
+    <puffer>5</puffer>
+    <farbe_a>#000000</farbe_a>
+    <farbe_b>#ff6a00</farbe_b>
+    <schiri_teamname_a>MJC Trier - Die Legionäre</schiri_teamname_a>
+    <schiri_teamname_b>MJC Trier - Die Römer</schiri_teamname_b>
+  </spiel>
+</spielplan>

@@ -61,10 +61,10 @@ var testGame = &Game{
 		Name:  "Bar",
 		Goals: 7,
 	},
-	TimeLeft: 120 * time.Second,
+	TimeLeft:  120 * time.Second,
 	Countdown: &Countdown{},
-	Half:     1,
-	Running:  false,
+	Half:      1,
+	Running:   false,
 }
 
 func (g *GamescoreTestSuite) TestCreateGame(c *C) {
@@ -102,7 +102,7 @@ func (g *GamescoreTestSuite) TestChangeState(c *C) {
 
 func (g *GamescoreTestSuite) TestTick(c *C) {
 	currentGame = *testGame
-	currentGame.Countdown.Set(120*time.Second)
+	currentGame.Countdown.Set(120 * time.Second)
 	currentGame.Countdown.Start()
 
 	tickOnce()
@@ -113,3 +113,4 @@ func (g *GamescoreTestSuite) TestTick(c *C) {
 	c.Assert(currentGame.Countdown.String(), Equals, "01:58")
 }
 
+// TODO: getPlan, postPlan tests

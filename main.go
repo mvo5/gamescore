@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"encoding/xml"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -27,8 +28,8 @@ type Game struct {
 	Team2 Team
 
 	// XXX: cleanup and handle all of this via "Countdown"
-	TimeLeft  time.Duration
-	TimeStr   string
+	TimeLeft time.Duration
+	TimeStr  string
 
 	Half    int
 	Running bool
@@ -42,7 +43,11 @@ type StateChange struct {
 	ToggleTimeout bool   `json:",omitempty"`
 }
 
-var currentGame Game
+// XXX: mutex!
+var (
+	currentGame     Game
+	currentSchedule Schedule
+)
 
 func init() {
 	// init with some example data
@@ -165,11 +170,53 @@ func stateChange(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusCreated)
 }
 
+/*
+ create via:
+ $ curl -i -H "Content-Type: application/xml" -X POST -d '@test-data/einradhockey1.xml' http://localhost:8080/api/1/schedule
+*/
+func postSchedule(w http.ResponseWriter, r *http.Request) {
+	var newSchedule Schedule
+	body, err := readBody(w, r)
+	if err != nil {
+		return
+	}
+	if err := xml.Unmarshal(body, &newSchedule); err != nil {
+		log.Printf("body %q resulted in %s", body, err)
+		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+		w.WriteHeader(422) // unprocessable entity
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	currentSchedule = newSchedule
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.WriteHeader(http.StatusCreated)
+}
+
+/* show via:
+ $ curl http://localhost:8080/api/1/schedule
+ curl http://localhost:8080/api/1/schedule
+{"Games":[{"ID":"1","Team1":"Crazy Ducks","Team2":"Quer-durchs-Land*","LenHalftimes":15,"NrHalftimes":2},{"ID":"2","Team1":"Black Stars","Team2":"MJC Trier - Die Römer","LenHalftimes":15,"NrHalftimes":2}]}
+*/
+func getSchedule(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	outJSON, err := json.Marshal(currentSchedule)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	fmt.Fprintf(w, "%s", outJSON)
+}
+
 func makeRouter() *mux.Router {
 	r := mux.NewRouter()
 	r.HandleFunc("/api/1/status", status).Methods("GET")
 	r.HandleFunc("/api/1/create", create).Methods("POST")
 	r.HandleFunc("/api/1/changeState", stateChange).Methods("POST")
+
+	r.HandleFunc("/api/1/schedule", postSchedule).Methods("POST")
+	r.HandleFunc("/api/1/schedule", getSchedule).Methods("GET")
+
 	prefix := os.Getenv("SNAP")
 	r.PathPrefix("/").Handler(http.FileServer(http.Dir(filepath.Join(prefix, "./static/"))))
 

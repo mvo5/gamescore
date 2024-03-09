@@ -83,7 +83,6 @@ $(document).ready(function(){
             }
         })
     }
-
     function playSound() {
         var audio = new Audio($('#select_sound').val());
         audio.play();
@@ -110,6 +109,20 @@ $(document).ready(function(){
         });
     }
 
+    function populateSchedule() {
+        $.getJSON("/api/1/schedule", function(json) {
+	    var dropdown = $('#schedule_dropdown');
+	    dropdown.empty();
+
+	    $.each(json.games, function(index, item) {
+		dropdown.append($('<option>', {
+		    value: JSON.stringify(item),
+		    text: item.team1 + " - " + item.team2 + " (halftimes " + item.nr_half + ")",
+		}));
+	    });
+	})
+    }
+
     // the callbacks
     $('#start').click(start);
     $('#create').click(create);
@@ -120,7 +133,45 @@ $(document).ready(function(){
     $('#timeout').click(function() {doTimeout()})
     $('#swap').click(function() {changeSides()})
     $('#testSound').click(playSound);
+    
+    // schedule handling
+    $('#schedule_dropdown').change(function() {
+	var selected = $(this).val();
+	console.log("selected " + selected);
+	var game = JSON.parse(selected);
+	$('#input_team1_name').val(game.team1);
+	$('#input_team2_name').val(game.team2);
+	$('#input_time').val(game.len_half);
+	create();
+    });
+    $(document).ready(function() {
+	$('#uploadButton').click(function() {
+	    var fileInput = document.getElementById('fileInput');
+	    var file = fileInput.files[0];
+	    var reader = new FileReader();
+	    reader.readAsText(file);
+	    reader.onload = function(event) {
+		$.ajax({
+		    url: '/api/1/schedule',
+		    type: 'POST',
+		    data: event.target.result,
+		    dataType: 'xml',
+		    success: function(response) {
+			console.log('File uploaded successfully:', response);
+		    },
+		    error: function(xhr, status, error) {
+			console.error('Error uploading file:', error);
+			alert('File upload failed.');
+		    }
+		});
+		populateSchedule();
+		$('#schedule_dropdown').val($('#schedule_dropdown option:first').val());
+		$('#schedule_dropdown').trigger('change');
+	    };
+	});
+    });
 
+    
     // keyboard shortcuts
     $('[data-toggle="tooltip"]').tooltip();
     $(document).keydown(function (event) {
